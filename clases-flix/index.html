@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bu1ldog Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Sección de portada -->
+    <section id="portada" class="portada">
+        <h1 class="titulo-portada"></h1>
+        <button class="entrar">Entrar</button>
+    </section>
+
+    <!-- Contador de visitas y reloj -->
+    <div class="info-fija">
+        <div class="contador-visitas">
+            <span id="contador">0</span> visitas
+        </div>
+        <div class="reloj" id="reloj"></div>
+    </div>
+
+    <!-- Sección de galería -->
+    <section id="galeria" class="galeria" style="display: none;">
+     <button class="boton-desplazar izquierda" onclick="desplazarGaleria(-1)">&#10094;</button>
+        <div class="galeria-contenedor">
+
+            <img src="assets/001.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/002.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/003.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/004.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/005.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/006.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/007.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/black_dragon_in_clouds.jpg" alt="concert" class="imagen-galeria">
+        </div>
+            <button class="boton-desplazar derecha" onclick="desplazarGaleria(1)">&#10095;</button>
+
+        <!-- Overlay para el zoom -->
+        <div id="overlay" class="overlay" onclick="ocultarZoom(event)">
+            <button class="boton-desplazar izquierda" onclick="cambiarImagen(-1, event)">&#10094;</button>
+            <img id="imagenZoom" src="" alt="Imagen ampliada" class="imagen-zoom">
+            <button class="boton-desplazar derecha" onclick="cambiarImagen(1, event)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Audio de fondo y controles -->
+    <div class="reproductor">
+        <button id="toggleMusic">Pausar Música</button>
+        <audio id="backgroundMusic" src="Reality-Elevin.mp3" loop>
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
+    <!-- Audio de efecto de clic -->
+    <audio id="clickSound" src="">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
