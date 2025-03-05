@@ -1,2 +1,2 @@
 # A_personal_practice
-Practica personal usando JS, HTML y CSS
+Una práctica personal de una galería, usando JS, HTML y CSS.
