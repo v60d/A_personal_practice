@@ -3,44 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bu1ldog Project</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Amigo Secreto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
-
 <body>
-    <main class="main-content">
-        <header class="header-banner">
-            <h1 class="main-title">Amigo Secreto</h1>
-            <img src="assets/Reto de Alura LATAM (1).gif" style="width: 190px; height: 180px;" alt="Imagen representativa de amigo secreto">
-        </header>
-        
-        <section class="input-section">
-            <h2 class="section-title">Agrega el nombre de tus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre" onkeypress="manejarEnter(event)">
-                <button class="button-add" onclick="agregarAmigo()">Añadir</button>
-            </div>
-           
-            <p id="contadorNombres">Nombres agregados: 0</p>
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+    <!-- Sección de portada -->
+    <section id="portada" class="portada">
+        <h1 class="titulo-portada"></h1>
+        <button class="entrar">Entrar</button>
+    </section>
 
-            <div class="button-container">
-                <button id="mostrarNombres" class="button-draw" onclick="mostrarNombresAleatorios()" aria-label="Iniciar ruleta de nombres">
-                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
-                    Tu amigo secreto es...
-                </button>
-                <button id="reiniciar" class="button-draw" onclick="reiniciarJuego()" aria-label="Reiniciar juego">
-                    <img src="assets/play_circle_outline.png" alt="Ícono para sortear">
-                    Volver a jugar
-                </button>
-            </div>
-        </section>
-    </main>
+    <!-- Contador de visitas y reloj -->
+    <div class="info-fija">
+        <div class="contador-visitas">
+            <span id="contador">0</span> visitas
+        </div>
+        <div class="reloj" id="reloj"></div>
+    </div>
 
-    <script src="app.js" defer></script>
+    <!-- Sección de galería -->
+    <section id="galeria" class="galeria" style="display: none;">
+     <button class="boton-desplazar izquierda" onclick="desplazarGaleria(-1)">&#10094;</button>
+        <div class="galeria-contenedor">
+
+            <img src="assets/001.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/002.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/003.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/004.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/005.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/006.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/007.jpg" alt="concert" class="imagen-galeria">
+            <img src="assets/black_dragon_in_clouds.jpg" alt="concert" class="imagen-galeria">
+        </div>
+            <button class="boton-desplazar derecha" onclick="desplazarGaleria(1)">&#10095;</button>
+
+        <!-- Overlay para el zoom -->
+        <div id="overlay" class="overlay" onclick="ocultarZoom(event)">
+            <button class="boton-desplazar izquierda" onclick="cambiarImagen(-1, event)">&#10094;</button>
+            <img id="imagenZoom" src="" alt="Imagen ampliada" class="imagen-zoom">
+            <button class="boton-desplazar derecha" onclick="cambiarImagen(1, event)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Audio de fondo y controles -->
+    <div class="reproductor">
+        <button id="toggleMusic">Pausar Música</button>
+        <audio id="backgroundMusic" src="Reality-Elevin.mp3" loop>
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
+    <!-- Audio de efecto de clic -->
+    <audio id="clickSound" src="">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
 </body>
 </html>
